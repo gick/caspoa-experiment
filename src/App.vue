@@ -1,11 +1,25 @@
 <template>
-  <div id="nav">
-    <router-link to="/">Home</router-link> |
-    <router-link to="/about">About</router-link>
-  </div>
-  <router-view/>
+<Menubar :model="items">
+</Menubar>
+  <router-view class="p-mb-2 p-mt-2"/>
 </template>
+<script>
+import Menubar from 'primevue/menubar';
+import {items} from '@/router/menu.js'
+export default {
+    data() {
+        return {
+          items:items
+        }
+    
 
+
+  },
+  components:{
+    Menubar
+  }
+}
+</script>
 <style>
 #app {
   font-family: Avenir, Helvetica, Arial, sans-serif;
