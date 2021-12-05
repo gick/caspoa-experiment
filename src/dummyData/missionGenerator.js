@@ -3,7 +3,8 @@ let aircraftNick=['TORO','SNAKE','BLACK','WILDCAT','WOLF','EAGLE','BEAR']
 let missileType=['M1','M3','T5']
 let fuelLevel=['low','half full','full']
 let locationName=['alpha','beta','theta','zeta','lambda']
-let distanceTIC=[30,33,50,212,151,300,289,222,71,12,17,25,530,1234,1230,1500,10,2000,25]
+let distanceTIC=['small', 'medium', 'far', 'extreme']
+
 let missionsType=[
     {category:'defense',type:['attack_base','escort_vip','escort_medevac','attack_fleet']},
     {category:'intel',type:['patrol','scout']},

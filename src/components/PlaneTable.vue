@@ -28,11 +28,13 @@ export default {
   }
   ,
   props:{
-      currentCols:Array,
   },
   computed:{
     currentPlanes(){
       return this.$store.state.currentPlanes
+    },
+    currentCols(){
+      return this.$store.state.currentCols
     }
   }
 

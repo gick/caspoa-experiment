@@ -1,5 +1,7 @@
 
 let writtenNumbers=["one","two","three","four","five"]
+const dist=['small','medium','far','extreme']
+
 let enemyVariation=["group of enemy", "group of adversaries", "group of terrorist"]
 let situationVariation=["encercling our troup", "firing at our troup", "threatening our troup"]
 let manpadVariation=["enemy equiped with air missiles","vehicule capable of air missile", "identified risk of air missile"]
@@ -27,21 +29,23 @@ let getRandomInt = function (max) {
 }
 
 let createTIC=function(){
-    let soldierGroup=getRandomInt(4)
-    let naturalSentenceTroop=createSentenceVariation("There is " + writtenNumbers[soldierGroup],enemyVariation,situationVariation)
-    let manpad=getRandomInt(3)+1
+    let groupNumber=getRandomInt(4)+1
+    let naturalSentenceTroop=createSentenceVariation("There is " + writtenNumbers[groupNumber],enemyVariation,situationVariation)
+    let manpad=getRandomInt(3)
     let naturalSentenceManpad=createSentenceVariation("There is " + writtenNumbers[manpad],manpadVariation)
     let vehicleNumber=getRandomInt(5)
     let naturalSentenceVehicle=createSentenceVariation("There are " + writtenNumbers[vehicleNumber],vehiculeVariation)
     let startDate=Date.now()
+    let distance=dist[getRandomInt(4)]
 
     return {
         startDate,  
-        soldierGroup,
-        naturalSentenceTroop,
+        groupNumber,
         manpad,
-        naturalSentenceManpad,
         vehicleNumber,
+        distance,
+        naturalSentenceTroop,
+        naturalSentenceManpad,
         naturalSentenceVehicle
     }
 }

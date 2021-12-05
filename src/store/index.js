@@ -1,10 +1,16 @@
-import { createStore } from 'vuex'
+import router from '../router/index'
 
-export default createStore({
+import { createStore } from 'vuex'
+export default createStore(
+  
+  {
+
   state: {
     currentPlanes:[],
     currentTIC:[],
-    selectedPlane:null
+    selectedPlane:null,
+    currentCols:[],
+    user:{}
   },
   mutations: {
     // set a new set of planes accessible
@@ -32,10 +38,27 @@ export default createStore({
           tic.selected=true
         }
       }
+    },
+
+    // set the current columns used for planes
+    setCurrentCols(state,payload){
+      state.currentCols=payload.currentCols
+    },
+    setUser(state,payload){
+      state.user=payload.user
+    },
+    removeUser(state){
+      state.user={}
     }
 
   },
   actions: {
+  
+    logout({commit}){
+      fetch("http://localhost:3000/user/logout", { credentials: 'include' })
+      .then(commit("removeUser"))
+      .then(router.push('/login'))
+    }
   },
   modules: {
   }
